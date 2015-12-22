@@ -1,0 +1,41 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% if title %}
+    <title>{{ title }} - mh pearl</title>
+    {% else %}
+    <title>welcome to mh pearl</title>
+    {% endif %}
+    <link rel="stylesheet" href="/static/css/app.css">
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="row">
+      <div class="large-12 columns">
+        <h1>Capture Agent Live Redundancy</h1>
+      </div>
+    </div>
+
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <hr></hr>
+        <ul>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        <hr></hr>
+    {% endif %}
+    {% endwith %}
+
+    {% block content %}{% endblock %}
+
+    <script src="/static/bower_components/jquery/dist/jquery.js"></script>
+    <script src="/static/bower_components/what-input/what-input.js"></script>
+    <script src="/static/bower_components/foundation-sites/dist/foundation.js"></script>
+    <script src="/static/js/app.js"></script>
+  </body>
+</html>

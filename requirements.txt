@@ -1,0 +1,8 @@
+Flask>=0.10.1
+Flask-Login>=0.3.2
+Flask-WTF>=0.12
+requests>=2.9.0
+epipearl>=0.1.0
+arrow>=0.7.0
+gunicorn>=19.4.1
+

@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="row">
+    <div class="medium-6 medium-centered large-4 large-centered columns">
+
+    <form action="{{ url_for('login') }}" method="post" name="login">
+        {{ form.hidden_tag() }}
+        <div class="row column log-in-form">
+            <h4 class="text-center">live redundancy login</h4>
+                {% for error in form.username.errors %}
+                    <small class="error">{{ error }}</small>
+                {% endfor %}
+            <label>username
+                {{ form.username }}
+                {% for error in form.password.errors %}
+                    <small class="error">{{ error }}</small>
+                {% endfor %}
+            </label>
+            <label>password
+                {{ form.password }}
+            </label>
+            {{ form.remember_me }}
+            <label for="remember_me">remember me</label>
+            <p><button type="submit" class="button expanded">login</a></p>
+         </div>
+    </form>
+
+    </div>
+</div>
+
+{% endblock %}
+
+
+
+

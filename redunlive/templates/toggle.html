@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="row">
+        <div class="small-9 small-centered columns"><div class="callout">
+            <table>
+            <thead><tr>
+                <th>Location</th>
+                <th>Primary | Secondary</th>
+            </tr></thead>
+            <tbody>
+                <tr>
+                    <td>{{ location.name }} ({{ location.active_livestream }})</td>
+                    <td>
+                    <div class="row">
+                        <form method="post"
+                            action="{{ url_for('toggle', loc_id=location.id) }}">
+                        <ul class="button-group round toggle" data-toggle="buttons-radio">
+                        <li>
+                        <input type="radio" id="{{ location.primary_ca.name }}"
+                        onChange='this.form.submit();'
+                        name="active_device" data-toggle="button" value="primary"
+                        {% if location.active_livestream == 'primary' %}
+                        checked="checked"
+                        {% endif %}
+                        ></input>
+                        <label class="button"
+                            for="{{ location.primary_ca.name}}">Primary</label>
+                        </li>
+                        <li>
+                        <input type="radio" id="{{ location.secondary_ca.name }}"
+                        onChange='this.form.submit();'
+                        name="active_device" data-toggle="button" value="secondary"
+                        {% if location.active_livestream == 'secondary' %}
+                        checked="checked"
+                        {% endif %}
+                        ></input>
+                        <label class="button"
+                            for="{{ location.secondary_ca.name }}">Secondary</label>
+                        </li>
+                        </ul>
+                        </form>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+            </table>
+        </div></div>
+    </div>
+
+{% endblock %}

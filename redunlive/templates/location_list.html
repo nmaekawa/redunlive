@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row">
+
+    <div class="small-9 small-centered columns"><div class="callout">
+    <ul>
+        {% for loc in locations %}
+        <li>
+            {% if not loc.primary_ca is defined %}
+            {{ loc.name }} - not properly configured (missing primary)
+            {% else %}
+            {% if not loc.secondary_ca is defined %}
+            {{ loc.name }} - not properly configured (missing primary)
+            {% else %}
+            <a href="{{ url_for('toggle', loc_id=loc.id ) }}">{{ loc.name }}</a>
+            {% endif %}
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+    </div></div>
+
+</div>
+
+{% endblock %}
